@@ -1,0 +1,6 @@
+﻿@model DateTime?
+
+@{
+    string pdate = PersianDatePicker_MVC.PersianDateExtension.GetPersianDateString(Model);
+}
+@pdate

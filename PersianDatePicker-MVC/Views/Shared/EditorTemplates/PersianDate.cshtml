@@ -1,0 +1,29 @@
+﻿<script type="text/javascript" src="/scripts/jquery.ui.datepicker-cc.all.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/Content/PersianDatePicker.css" />
+
+
+@model DateTime?    
+
+@Html.Hidden("",  Model, new { @class = "MainDatePicker" })
+@Html.TextBox("EnglishDateTextbox", PersianDatePicker_MVC.PersianDateExtension.GetPersianDateString(Model), new { @class = "AlternativeDatePicker" })
+
+<script  type="text/javascript">
+
+    $(document).ready(function () {
+        $(".AlternativeDatePicker").datepicker({
+            dateFormat: 'd MM yy',
+            onSelect: function(dateText, inst) {
+                var date = new JalaliDate(inst['selectedYear'], inst['selectedMonth'], inst['selectedDay']).getGregorianDate();
+
+                var month = date.getMonth() + 1;
+                if (month <= 9)
+                    month = '0' + month.toString();
+                var day = date.getDate();
+                if (day <= 9)
+                    day = '0' + day.toString();
+
+                document.getElementsByClassName("MainDatePicker")[0].value = date.getFullYear() + '/' + month + '/' + day;
+            }
+        });
+    });
+  </script>  
