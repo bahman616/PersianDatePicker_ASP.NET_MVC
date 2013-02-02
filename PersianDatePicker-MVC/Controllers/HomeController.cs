@@ -1,15 +1,14 @@
-﻿using System;
+﻿using PersianDatePicker_MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PersianDatePicker_MVC.Models;
 
 namespace PersianDatePicker_MVC.Controllers
 {
-    public class StudentController : Controller
+    public class HomeController : Controller
     {
         private StuEntities db = new StuEntities();
 
@@ -116,5 +115,6 @@ namespace PersianDatePicker_MVC.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
     }
 }
