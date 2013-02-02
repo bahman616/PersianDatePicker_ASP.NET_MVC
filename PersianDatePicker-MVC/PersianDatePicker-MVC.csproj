@@ -161,6 +161,7 @@
     <Content Include="Content\images\PersianDatePicker\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\PersianDatePicker.css" />
     <Content Include="Global.asax" />
+    <Content Include="PersianDatePicker-MVC.csproj.user" />
     <Content Include="Required\EntityFramework.dll" />
     <Content Include="Required\Microsoft.Web.Infrastructure.dll" />
     <Content Include="Required\Newtonsoft.Json.dll" />
