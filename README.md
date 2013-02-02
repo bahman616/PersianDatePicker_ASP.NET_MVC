@@ -3,7 +3,8 @@ PersianDatePicker_ASP.NET_MVC
 
 Persian Date Picker Template for ASP.NET MVC projects
 
-This project helps you to integrate Persian Date Picker with ASP.NET MVC projects. By using it you can save your date 
+This project helps you to integrate Persian Date Picker with ASP.NET MVC projects. By using it you can 
+have your field in DateTime format in database, then show and edit it in Persian Date format. 
 
 How to use:
 
