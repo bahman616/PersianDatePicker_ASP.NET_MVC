@@ -10,8 +10,10 @@ How to use:
 
 1. Copy required js files to script directory:
 
-jquery.ui.datepicker-cc.all.min.js
+jquery.ui.datepicker-cc.all.min.js 
+
 modernizr-2.0.6-development-only.js
+
 jquery-1.8.3.min.js
 
 2. Copy "PersianDatePicker.css" and "images" folder to the Content folder.
