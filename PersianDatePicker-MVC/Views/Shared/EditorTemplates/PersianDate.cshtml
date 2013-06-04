@@ -1,16 +1,19 @@
-﻿<script type="text/javascript" src="/scripts/jquery.ui.datepicker-cc.all.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.ui.datepicker-cc.all.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/Content/PersianDatePicker.css" />
 
 
 @model DateTime?    
-
-@Html.Hidden("",  Model, new { @class = "MainDatePicker" })
-@Html.TextBox("EnglishDateTextbox", PersianDatePicker_MVC.PersianDateExtension.GetPersianDateString(Model), new { @class = "AlternativeDatePicker" })
+@{
+    var mainDatePickerID = System.Guid.NewGuid();
+    var alternativeDatePicker = System.Guid.NewGuid();
+}
+@Html.Hidden("",  Model, new { @class = mainDatePickerID })
+@Html.TextBox("EnglishDateTextbox", PersianDatePicker_MVC.PersianDateExtension.GetPersianDateString(Model), new { @class = alternativeDatePicker })
 
 <script  type="text/javascript">
 
     $(document).ready(function () {
-        $(".AlternativeDatePicker").datepicker({
+        $(".@alternativeDatePicker").datepicker({
             dateFormat: 'd MM yy',
             onSelect: function(dateText, inst) {
                 var date = new JalaliDate(inst['selectedYear'], inst['selectedMonth'], inst['selectedDay']).getGregorianDate();
@@ -22,8 +25,8 @@
                 if (day <= 9)
                     day = '0' + day.toString();
 
-                document.getElementsByClassName("MainDatePicker")[0].value = date.getFullYear() + '/' + month + '/' + day;
+                document.getElementsByClassName("@mainDatePickerID")[0].value = date.getFullYear() + '/' + month + '/' + day;
             }
         });
     });
-  </script>  
+</script>  
