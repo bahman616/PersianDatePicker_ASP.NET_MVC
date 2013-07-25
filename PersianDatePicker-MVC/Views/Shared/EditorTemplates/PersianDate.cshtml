@@ -1,4 +1,4 @@
-﻿<script type="text/javascript" src="/scripts/jquery.ui.datepicker-cc.all.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.ui.datepicker-cc.all.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/Content/PersianDatePicker.css" />
 
 
@@ -21,8 +21,15 @@
                 var day = date.getDate();
                 if (day <= 9)
                     day = '0' + day.toString();
-
-                document.getElementsByClassName("MainDatePicker")[0].value = date.getFullYear() + '/' + month + '/' + day;
+                var textboxname = $(this).attr('name');
+                var textboxnamewithoutprefix = textboxname.substring(0, textboxname.indexOf('.EnglishDateTextbox'));
+                $('.MainDatePicker').each(function (i, obj) {
+                    var hiddenfieldname = $('.MainDatePicker')[i].name;
+                    if (textboxnamewithoutprefix == hiddenfieldname)
+                    {
+                        $('.MainDatePicker')[i].value = date.getFullYear() + '/' + month + '/' + day;
+                    }
+                });
             }
         });
     });
