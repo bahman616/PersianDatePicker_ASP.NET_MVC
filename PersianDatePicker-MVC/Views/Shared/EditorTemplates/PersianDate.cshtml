@@ -26,6 +26,10 @@ last edit: 25/07/2013
                     day = '0' + day.toString();
                 var textboxname = $(this).attr('name');
                 var textboxnamewithoutprefix = textboxname.substring(0, textboxname.indexOf('.EnglishDateTextbox'));
+
+                //in Models that have nested item '.' must be replace to '_' otherwise getElementById will fail
+                textboxnamewithoutprefix = textboxnamewithoutprefix.replace('.', '_');
+
                 document.getElementById(textboxnamewithoutprefix).value = date.getFullYear() + '/' + month + '/' + day;
             }
         });
